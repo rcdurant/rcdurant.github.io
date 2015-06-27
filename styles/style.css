@@ -1,0 +1,69 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('../images/icons/icomoon.eot?slhk2d');
+	src:url('../images/icons/icomoon.eot?#iefixslhk2d') format('embedded-opentype'),
+		url('../images/icons/icomoon.woff?slhk2d') format('woff'),
+		url('../images/icons/icomoon.ttf?slhk2d') format('truetype'),
+		url('../images/icons/icomoon.svg?slhk2d#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-stethoscope2:before {
+	content: "\e600";
+}
+
+.icon-pulslogo2:before {
+	content: "\e601";
+}
+
+.icon-medkit2:before {
+	content: "\e602";
+}
+
+.icon-pulselogo:before {
+	content: "\e603";
+}
+
+.icon-bar-chart:before {
+	content: "\f080";
+}
+
+.icon-tasks:before {
+	content: "\f0ae";
+}
+
+.icon-user-md:before {
+	content: "\f0f0";
+}
+
+.icon-stethoscope:before {
+	content: "\f0f1";
+}
+
+.icon-medkit:before {
+	content: "\f0fa";
+}
+
+.icon-desktop:before {
+	content: "\f108";
+}
+
+.icon-laptop:before {
+	content: "\f109";
+}
+
