@@ -19,11 +19,9 @@ codeurl: 'https://github.com/bruth/jekyll-docs-template'
 
 # Default categories (in order) to appear in the navigation
 sections: [
-    ['doc', 'Documentation'],
-    ['tut', 'Tutorial'],
-    ['ref', 'Reference'],
-    ['dev', 'Developers'],
-    ['post', 'Posts']
+    ['global', 'Global Probe Instrumentation'],
+    ['iot', 'IOT Optimization'],
+    ['faq', 'FAQ']
 ]
 
 # Keep as an empty string if served up at the root. If served up at a specific

@@ -1,4 +1,17 @@
-<h4><a class=brand href="{{ site.baseurl }}/">{{ site.title }}</a>
-    {% if site.subtitle %}<small>{{ site.subtitle }}</small>{% endif %}
-</h4>
-
+<header class="app-bar promote-layer">
+    <div class=app-bar-container>
+        <button class=menu><img src="{{ site.baseurl }}/images/hamburger.svg" alt=Menu></button><img class=logoimg src="{{ site.baseurl }}/images/iodoctors_logo.png">
+        <h1 class=logo>I/O <strong>Doctors</strong></h1>
+        <section class=app-bar-actions></section>
+    </div>
+</header>
+<nav class="navdrawer-container promote-layer">
+    <h4>Navigation</h4>
+    <ul>
+        <li><a href="{{ site.baseurl }}/index.html">{% if page.url == "/index.html" %}<strong>Home</strong>{% else %}Home{% endif %}</a></li>
+        <li><a href="{{ site.baseurl }}/faq.html">{% if page.url == "/faq.html" %}<strong>FAQ</strong>{% else %}FAQ{% endif %}</a></li>
+        <li><a href="{{ site.baseurl }}/documentation.html">{% if page.url == "/documentation.html" %}<strong>Documentation</strong>{% else %}Documentation{% endif %}</a></li>
+        <li><a href="{{ site.baseurl }}/company.html">{% if page.url == "/company.html" %}<strong>Company</strong>{% else %}Company{% endif %}</a></li>
+        <li><a href="{{ site.baseurl }}/contact.html">{% if page.url == "/contact.html" %}<strong>Contact</strong>{% else %}Contact{% endif %}</a></li>
+    </ul>
+</nav>

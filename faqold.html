@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=description content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>I/O Doctors, LLC</title>
+    <meta name=mobile-web-app-capable content=yes>
+    <link rel=icon sizes=192x192 href=images/touch/chrome-touch-icon-192x192.png>
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=black>
+    <meta name=apple-mobile-web-app-title content="Web Starter Kit">
+    <link rel=apple-touch-icon-precomposed href=apple-touch-icon-precomposed.png>
+    <meta name=msapplication-TileImage content=images/touch/ms-touch-icon-144x144-precomposed.png>
+    <meta name=msapplication-TileColor content=#3372DF>
+    <link rel=stylesheet href=styles/main.css>
+    <link rel=stylesheet href=styles/font-awesome.min.css>
+</head>
+
+<body>
+    <header class="app-bar promote-layer" style="z-index: 1;">
+        <div class=app-bar-container>
+            <button class=menu><img src=images/hamburger.svg alt=Menu></button> <img class=logoimg src=images/iodoctors_logo.png>
+            <h1 class=logo>I/O <strong>Doctors</strong></h1>
+            <section class=app-bar-actions></section>
+        </div>
+    </header>
+    <nav class="navdrawer-container promote-layer" style="z-index: 1;">
+        <h4>Navigation</h4>
+        <ul>
+            <li><a href=index.html>Home</a></li>
+            <li><a href=faq.html><strong>Support</strong></a></li>
+            <li><a href=company.html>Company</a></li>
+            <li><a href=contact.html>Contact</a></li>
+        </ul>
+    </nav>
+    <main style=padding-top:0px;>
+        <div class="summary-header g-wide--1">
+            <div class=container>
+                <ol class="summary-header__anchor-list list-links">
+                    <li class=summary-header__anchors-item><a href=#iot>iot</a>
+                        <ul class=summary-header__anchors-item2><a href=#examplesiot>Examples</a></ul>
+                    </li>
+                    <li class=summary-header__anchors-item><a href=#pulse>Pulse</a></li>
+                    <li class=summary-header__anchors-item><a href=#instrumentation-streams>Instrumentation Streams</a>
+                        <ul class=summary-header__anchors-item2><a href=#posix>POSIX</a></ul>
+                    </li>
+                    <li class=summary-header__anchors-item><a href=#globalprobe>Global Probe Instrumentation</a>
+                        <ul class=summary-header__anchors-item2><a href=#meminfo>meminfo</a></ul>
+                        <ul class=summary-header__anchors-item2><a href=#diskstats>diskstats</a></ul>
+                        <ul class=summary-header__anchors-item2><a href=#ost>Lustre OSC</a></ul>
+                        <ul class=summary-header__anchors-item2><a href=#fiemap>Lustre fiemap</a></ul>
+                    </li>
+                    <li class=summary-header__anchors-item><a href=#optimization>IOT Optimization</a>
+                        <ul class=summary-header__anchors-item2><a href=#cache>cache layer</a></ul>
+                        <ul class=summary-header__anchors-item2><a href=#paio>paio layer</a></ul>
+                        <ul class=summary-header__anchors-item2><a href=#proxy>proxy layer</a></ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="container faqcontent g-wide--3 g-wide--push-3">
+            <div class=container>
+                <a name=iot></a>
+                <h2 class=subsection-title><strong class=subsection-number>#1</strong></h2></div>
+            <section class=styleguide__editorial-header>
+                <div class=editorial-header>
+                    <div class=container>
+                        <h2 class=editorial-header__subtitle>What is <strong>iot</strong>?</h2>
+                        <p class="editorial-header__excerpt g-wide--pull-1"><strong>iot</strong> is a Linux application program that inserts the I/O toolkit middleware into the environment of all child processes of iot. iot has several options that allow for customizable instrumentation.</p>
+                        <br>
+                        <li>Wild card name selection of programs and files affected by iot middleware</li>
+                        <li>Each child of <strong>iot</strong> generates its own ilz stream</li>
+                        <li>Optional merging of all generated ilz streams into a single stream</li>
+                        <li>Collection of kernel instrumentation such as diskstats, netstats, meminfo, and cpustat</li>
+                        <li>Optional delay of <strong>iot</strong> intervention in programs until MPI_Initialized() returns true.</li>
+                        <h3>Benefits</h3>
+                        <br>
+                        <li>No root permission needed</li>
+                        <li>No recompiling or relinking</li>
+                        <li>Minimal changes to run scripts</li>
+                        <li>Compatible with MPI</li>
+                        <li>Low overhead</li>
+                        <a name=examplesiot></a>
+                        <h3>Examples</h3>
+                        <p class=g-wide--pull-1><strong>iot</strong> command is a pre-command, such as time:</p><pre class="auto-gen-code-snippet container auto-gen-code-visible">
+              <p>% iot -f dd.icf dd if=/dev/zero of=/dev/null count=1024 bs=1m</p>
+            </pre>
+                        <p class=g-wide--pull-1>iot arguments</p><pre class="auto-gen-code-snippet container auto-gen-code-visible">
+              <p>
+​-f &lt;icf_file_name&gt;
+​-c &lt;file&gt; collect all iol results in file
+​​-m delay iot interception until MPI_Initialized() returns true</p>
+            </pre>
+                        <p class=g-wide--pull-1>Processes downstream of the iot process are selectable for instrumentation, based on the pathname of the program being executed, by directives in an iot configuration file (icf):</p><pre class="auto-gen-code-snippet container auto-gen-code-visible">
+              <p>PROGRAMS.include={*.exe:a.out}.exclude={sh:csh}</p>
+            </pre>
+                        <p class=g-wide--pull-1>icf example</p><pre class="auto-gen-code-snippet container auto-gen-code-visible">
+              <p>​ilz.name={${PROGRAM}.${PID}}.directory={${HOME}/ilz}
+​​diskstats.interval={500}.devices={sd*}
+​​meminfo.interval={500}
+​​PROGRAMS.include={*.exe}.exclude{/bin/*}
+​​​   FILES.include={/tmp/**}
+​​​​      LAYERS.use={trc,psx}</p>
+            </pre></div>
+                </div>
+            </section>
+            <div class=container>
+                <a name=pulse></a>
+                <h2 class=subsection-title><strong class=subsection-number>#2</strong></h2></div>
+            <section class=styleguide__editorial-header>
+                <div class=editorial-header>
+                    <div class=container>
+                        <h2 class=editorial-header__subtitle>What is Pulse?</h2>
+                        <p class="editorial-header__excerpt g-wide--pull-1"><strong>Pulse</strong> is a Java graphical application that imports ilz streams and allows the user to view and manipulate the imported data. Pulse has several features that facilitate the analysis of data:</p>
+                        <br>
+                        <li>Built in compiler/linker allowing customizable expressions, functions and macros for data manipulation and plotting</li>
+                        <li>Support of numerous data types: int, long, float, double, string, and boolean</li>
+                        <li>A built in library of plotting functions allowing access to Java's plotting capabilities</li>
+                        <li>Tabular data with row counts limited only by the amount of stack memory available to the JRE ( Java Runtime Environment ).</li>
+                        <p>NOTE: The largest ilz stream processed by Pulse consisted of 2 tables of 28.6M posix reads and writes, requiring only 2.3GB of memory by the JRE</p>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </section>
+            <div class=container>
+                <a name=instrumentation-streams></a>
+                <h2 class=subsection-title><strong class=subsection-number>#3</strong></h2></div>
+            <section class=styleguide__editorial-header>
+                <div class=editorial-header>
+                    <div class=container>
+                        <h2 class=editorial-header__subtitle>How are Instrumentation Streams used?</h2>
+                        <p class="editorial-header__excerpt g-wide--pull-1">File I/O instrumentation for each program is selectable on a per-file basis, based on each file's pathname, by directives in an icf file:</p><pre class="auto-gen-code-snippet container auto-gen-code-visible">
+              <p>​FILES.include={*.dat:/tmp/**}.exclude={/scratch/**}
+​LAYERS.use={trc,psx}</p>
+            </pre>
+                        <p class=g-wide--pull-1>Resulting instrumentation is recorded in an <strong>ilz</strong> file.​
+                            <br>
+                        </p>
+                        <h3><strong>ilz</strong> streams are:</h3>
+                        <br>
+                        <li>Stored in a file for post-mortem analysis</li>
+                        <li>Delivered via socket for run-time analysis</li>
+                        <li>zlib compressed to minimize sizes</li>
+                        <li>Multiple ilz streams can be concurrently merged into a single ilz stream</li>
+                        <h3>There are 3 levels of file I/O instrumentation</h3>
+                        <p>Statistics, for each selected file, are summed into a one line summary for the process</p>
+                        <p>​trc.detail=0 produces the following for every program</p><pre class="auto-gen-code-snippet container auto-gen-code-visible">
+# date time host user pid program bucket openCount closeCount write(count,bytes,wait) read count,bytes,wait)
+03/12/15 12:31:26 shemp bauerj 30168 cc1 program_to_psx 192 192 113 547 0.00 191 1219977 0.00
+
+            </pre>
+                        <p>Statistics, for each selected file, are output to the ilz file.</p>
+                        <p>​trc.detail=1 produces the following for every file</p><pre class="auto-gen-code-snippet container auto-gen-code-visible">
+iosim.exe.21016.ilz trc program_to_cache /mnt/raid0/bauerj/iosim/20992/merged/kubota.SCR300 58224 7630618624 8.43
+iosim.exe.21016.ilz trc size(open,close,max)=0,0,460980224  fsType=EXT2 sector=8192
+iosim.exe.21016.ilz trc write         8818 1155792896     1.50
+iosim.exe.21016.ilz trc read         49399 6474825728     4.15
+iosim.exe.21016.ilz trc ftunc            5  948043776     2.79
+            </pre>
+                        <p>Blow-by-blow details of each I/O event, for each selected file, are logged in the ilz file.</p>
+                        <p>​trc.detail=2 provides tables such as the following for each posix I/O event for each file, in addition to the per-file summary information from trc.detail=1</p>
+                        <a name=posix></a>​
+                        <h2>POSIX</h2>
+                        <p>For example, the details for a POSIX read are:</p><img src=../images/fpa_table.png>
+                        <p>Visualized in Pulse</p><img src=../images/fpa_plot.png>
+                        <div class=container>
+                            <a name=globalprobe></a>​
+                            <h2 class=subsection-title><strong class=subsection-number>#4</strong></h2></div>
+                    </div>
+                    <section class=styleguide__editorial-header>
+                        <div class=editorial-header>
+                            <div class=container>
+                                <h2 class=editorial-header__subtitle>Global Probe Instrumentation</h2>
+                                <a name=meminfo></a>​
+                                <h2>meminfo</h2>
+                                <p>Memory information for a program being instrumented can be enabled with a directive in an icf file:</p><pre>​meminfo.interval={500}</pre>
+                                <p>The above requests the following memory related details be logged to the ilz file at an interval of 500 milliseconds.</p><img src=../images/meminfo_table.png>
+                                <p>Visualized in Pulse</p><img src=../images/meminfo_plot.png>
+                                <a name=diskstats></a>​
+                                <h2>diskstats</h2>
+                                <p>Disk statistics information instrumentation, as reported in /proc/diskstats, can be enabled with a directive in an icf file:</p><pre>​diskstats.interval={100}.devices={sd*}</pre>
+                                <p>The above requests the following diskstats related details be logged to the ilz file at an interval of 100 milliseconds. For each selected device, both a read table and a write table are generated.</p><img src=../images/disk_table.png>
+                                <p>Visualized in Pulse</p><img src=../images/disk_plot.png>
+                                <a name=ost></a>​
+                                <h2>Lustre OSC statistics</h2>
+                                <p>Lustre client OSC usage statistics, as reported in /proc/fs/lustre/osc, can be enabled with a directive in an icf file:</p><pre>​lfsstats.interval={10}.devices={snx*}</pre><img src=../images/osc_cached_table.png>
+                                <p>Visualized in Pulse</p><img src=../images/osc_cached_plot.png>
+                                <a name=fiemap></a>​
+                                <h2>Lustre fiemap</h2>
+                                <p><strong>llfie</strong> is an iot utility program that generates an ilz file containing the mapping information for a data file stored on a Lustre filesystem. This can be used to visualize how the file is mapped into each OST. Notice in the following table that as the file's allocation position increases, the physical position on the OST oscillates between deep into the OST(~15TB) and back out to the start of the OST(~170GB).</p><img src=../images/llfie_table.png>
+                                <p>The following plot has "extent number" on the horizontal axis and "physical position" on the vertical axis. This 30,000 foot view of the file allocation shows how the start of the file is generally deep in the OST. The bulk of the file is at the start of the OST.</p><img src=../images/llfie_plot.png>
+                                <div class=container>
+                                    <a name=optimization></a>​
+                                    <h2 class=subsection-title><strong class=subsection-number>#5</strong></h2></div>
+                            </div>
+                            <section class=styleguide__editorial-header>
+                                <div class=editorial-header>
+                                    <div class=container>
+                                        <h2 class=editorial-header__subtitle>IOT Optimization Layers</h2>
+                                        <a name=cache></a>​
+                                        <h2>cache layer</h2>
+                                        <p>The iot cache layer is a user memory cache. Key features are:</p>
+                                        <br>
+                                        <li>user selects which files are cached based on the file's pathname</li>
+                                        <li>all cached files share one global iot cache</li>
+                                        <li>configurable total cache size</li>
+                                        <li>configurable page size</li>
+                                        <li>asynchronous prefetching when sequential access is detected</li>
+                                        <li>can use either direct I/O or system buffered I/O</li>
+                                        <li>optional generation of instrumentation data to assist tuning</li>
+                                        <li>thread safe</li>
+                                        <p>The following image depicts the iot cache in operation, both as a prefetch mechanism and a data reuse mechanism. The grey shaded rectangles represent when a given part of the file is cache resident. The vertical line at the left of the rectangle is the representation of the asynchronous read loading the page. The other red lines are the user program reading data out of the iot cache. At a later point the user program starts reading the file backwards, which has a steeper slope( higher transfer rate), as the data is already cache resident.</p><img src=../images/floorpan_fpa.png>
+                                        <a name=paio></a>​
+                                        <h2>paio</h2>
+                                        <p>The iot paio layer uses pthreads to handle asynchronous I/O requests issued by the iot cache layer. Key features are:</p>
+                                        <br>
+                                        <li>low overhead</li>
+                                        <li>the number of aio handling threads is user specified</li>
+                                        <a name=proxy></a>​
+                                        <h2>proxy layer</h2>
+                                        <p>The iot proxy layer is a data transport mechanism. It allows for the transporting of I/O calls, normally made on the local node, to an iot proxy server, ips, running on a different node. The ips then issues the I/O calls on its node. The ips on the server node may also use any of the availble iot layers. This means the ips can have its own iot cache and be used to aggregate I/O calls coming from multiple client processes using the iot proxy layer. Security for the connection to the ips is via ssh. The user process on the client node must be able to ssh, without password, into the server node( where the ips server is to be started or is already running ).</p>
+                                        <br>
+                                        <li>multiple ips servers can be running on a server node</li>
+                                        <li>multiple clients can connect to a single ips</li>
+                                        <li>a single client can connect to multiple ips ( on one or more server nodes). This means if there are multiple network connections between the client node and the server node there is the capability for proxy/ips to utilize the available bandwidth</li>
+                                        <li>ipsctl, an iot utility program, can be used to monitor and control the ips.</li>
+                                        <li>proxy layer is thread safe and can be downstream of the iot cache and paio layers to asynchronously keep data moving across the proxy/ips connection(s)</li>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div id=gc-footer style="position: fixed; right:5px; bottom:5px;">
+                            <div class=container>
+                                <p><a href=#>TOP</a></p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src=scripts/main.min.js></script>
+    <script>
+    // (function() {
+    //     'use strict';
+
+    //     var snippetToggle = document.querySelector('#snippet-toggle');
+    //     var snippets;
+
+    //     snippetToggle.addEventListener('click', function() {
+    //         if (snippets) {
+    //             for (var i = 0; i < snippets.length; i++) {
+    //                 snippets[i].classList.toggle('auto-gen-code-visible');
+    //             }
+    //         }
+    //     });
+
+    //     window.onload = function() {
+    //         createCodeSamples();
+    //         snippets = document.querySelectorAll('.auto-gen-code-snippet');
+    //     };
+
+    //     function createCodeSamples() {
+    //         var codeWrappers = document.querySelectorAll('.code-sample');
+
+    //         for (var i = 0; i < codeWrappers.length; i++) {
+    //             var codeWrapper = codeWrappers[i];
+    //             var clonedNodes = getClonedNonTextNodes(codeWrapper);
+
+    //             beautifyNodes(clonedNodes);
+
+    //             var preElement = document.createElement('pre');
+    //             var codeElement = document.createElement('code');
+
+    //             for (var j = 0; j < clonedNodes.length; j++) {
+    //                 codeElement.appendChild(document.createTextNode(clonedNodes[j].outerHTML));
+
+    //                 if (j + 1 < clonedNodes.length) {
+    //                     codeElement.appendChild(document.createTextNode('\n'));
+    //                 }
+    //             }
+
+    //             preElement.appendChild(codeElement);
+    //             preElement.classList.add('auto-gen-code-snippet');
+    //             preElement.classList.add('container');
+
+    //             var clearDiv = document.createElement('div');
+    //             clearDiv.classList.add('clear');
+
+    //             var parent = codeWrapper.parentNode;
+
+    //             if (codeWrapper.nextSibling) {
+    //                 parent.insertBefore(preElement, codeWrapper.nextSibling);
+    //             } else {
+    //                 parent.appendChild(preElement);
+    //             }
+
+    //             parent.insertBefore(clearDiv, preElement);
+    //         }
+    //     }
+
+    //     function getClonedNonTextNodes(element) {
+    //         var nonTextNodes = [];
+    //         var childNodes = element.childNodes;
+
+    //         for (var i = 0; i < childNodes.length; i++) {
+    //             var childElement = childNodes[i];
+
+    //             if (childElement.nodeType !== 3) {
+    //                 // Found a valid child element
+    //                 nonTextNodes.push(childElement.cloneNode(true));
+    //             }
+    //         }
+
+    //         return nonTextNodes;
+    //     }
+
+    //     function beautifyNodes(elements) {
+    //         for (var i = 0; i < elements.length; i++) {
+    //             beautifyNode(elements[i], 0);
+    //         }
+    //     }
+
+    //     function beautifyNode(element, depth) {
+    //         var childNodes = element.childNodes;
+    //         var singleIndent = '    ';
+    //         var currentDepthSpacing = '';
+
+    //         for (var i = 0; i < depth; i++) {
+    //             currentDepthSpacing += singleIndent;
+    //         }
+
+    //         var nextDepthSpacing = currentDepthSpacing + singleIndent;
+
+    //         for (var j = 0; j < childNodes.length; j++) {
+    //             var childElement = childNodes[j];
+
+    //             if (childElement.nodeType === 3) {
+    //                 // found a text node
+    //                 if (childElement.nodeValue.indexOf('\n') >= 0) {
+    //                     if (j + 1 < childNodes.length) {
+    //                         childElement.nodeValue = '\n' + nextDepthSpacing;
+    //                     } else {
+    //                         childElement.nodeValue = '\n' + currentDepthSpacing;
+    //                     }
+    //                 }
+    //             } else {
+    //                 beautifyNode(childElement, depth + 1);
+    //             }
+    //         }
+    //     }
+    // })();
+    </script>
+</body>
+
+</html>

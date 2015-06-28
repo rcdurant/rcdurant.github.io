@@ -1,0 +1,268 @@
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=description content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>I/O Doctors, LLC</title>
+    <meta name=mobile-web-app-capable content=yes>
+    <link rel=icon sizes=192x192 href=images/touch/chrome-touch-icon-192x192.png>
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=black>
+    <meta name=apple-mobile-web-app-title content="Web Starter Kit">
+    <link rel=apple-touch-icon-precomposed href=apple-touch-icon-precomposed.png>
+    <meta name=msapplication-TileImage content=images/touch/ms-touch-icon-144x144-precomposed.png>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel=stylesheet href="/styles/main.css">
+    <link rel=stylesheet href="/styles/font-awesome.min.css">
+    <link rel=stylesheet href="styles/style.css">
+
+
+
+</head>
+
+<body>
+<header class="app-bar promote-layer">
+    <div class=app-bar-container>
+        <button class=menu><img src="/images/hamburger.svg" alt=Menu></button><img class=logoimg src="/images/iodoctors_logo.png">
+        <h1 class=logo>I/O <strong>Doctors</strong></h1>
+        <section class=app-bar-actions></section>
+    </div>
+</header>
+<nav class="navdrawer-container promote-layer">
+    <h4>Navigation</h4>
+    <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/faq.html"><strong>FAQ</strong></a></li>
+        <li><a href="/documentation.html">Documentation</a></li>
+        <li><a href="/company.html">Company</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+  <div class=container>
+            <div class=row-fluid>
+                
+                
+                    <div id=navigation class=span12>
+                        <ol class="nav nav-list">
+
+
+      
+          <!-- 
+              <li class=nav-header></li>
+           -->
+          <li data-order="1"><a href="/faq.html#1">What is iot?</a></li>
+      
+          <!--  -->
+          <li data-order="2"><a href="/faq.html#2">What is Pulse?</a></li>
+      
+          <!--  -->
+          <li data-order="3"><a href="/faq.html#3">How are Instrumentation Streams Used?</a></li>
+      
+
+<!-- List additional links. It is recommended to add a divider
+    e.g. <li class=divider></li> first to break up the content. -->
+</ol>
+
+                    </div>
+
+                      <div id=content class=span10>
+  
+<div id=1>
+    <strong>#1</strong>
+    <h1 id="what-is-iot">What is iot?</h1>
+
+<p><strong>iot</strong> is a Linux application program that inserts the I/O toolkit middleware into the environment of all child processes of iot. iot has several options that allow for customizable instrumentation.</p>
+
+<p>Wild card name selection of programs and files affected by iot middleware
+Each child of iot generates its own ilz stream
+Optional merging of all generated ilz streams into a single stream
+Collection of kernel instrumentation such as diskstats, netstats, meminfo, and cpustat
+Optional delay of iot intervention in programs until <code>MPI_Initialized()</code> returns true.</p>
+
+<h3 id="benefits">Benefits</h3>
+
+<ul>
+<li>No root permission needed</li>
+<li>No recompiling or relinking</li>
+<li>Minimal changes to run scripts</li>
+<li>Compatible with MPI</li>
+<li>Low overhead</li>
+</ul>
+
+<h3 id="examples">Examples</h3>
+
+<p>iot command is a pre-command, such as time:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">% iot -f dd.icf dd if=/dev/zero of=/dev/null count=1024 bs=1m
+</code></pre></div>
+<p>iot arguments</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">​-f &lt;icf_file_name&gt;
+​-c &lt;file&gt; collect all iol results in file
+​​-m delay iot interception until MPI_Initialized() returns true
+</code></pre></div>
+<p>Processes downstream of the iot process are selectable for instrumentation, based on the pathname of the program being executed, by directives in an iot configuration file (icf):
+<code>
+PROGRAMS.include={*.exe:a.out}.exclude={sh:csh}
+</code></p>
+
+<p>icf example</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">​ilz.name={${PROGRAM}.${PID}}.directory={${HOME}/ilz}
+​​diskstats.interval={500}.devices={sd*}
+​​meminfo.interval={500}
+​​PROGRAMS.include={*.exe}.exclude{/bin/*}
+​​​   FILES.include={/tmp/**}
+​​​​      LAYERS.use={trc,psx}
+</code></pre></div>
+</div>
+  
+<div id=2>
+    <strong>#2</strong>
+    <h1 id="what-is-pulse">What is Pulse?</h1>
+
+<p><strong>Pulse</strong> is a Java graphical application that imports ilz streams and allows the user to view and manipulate the imported data. Pulse has several features that facilitate the analysis of data:</p>
+
+<ul>
+<li>Built in compiler/linker allowing customizable expressions, functions and macros for data manipulation and plotting</li>
+<li>Support of numerous data types: int, long, float, double, string, and boolean</li>
+<li>A built in library of plotting functions allowing access to Java&#39;s plotting capabilities</li>
+<li>Tabular data with row counts limited only by the amount of stack memory available to the JRE ( Java Runtime Environment ).</li>
+</ul>
+
+<p><em>NOTE: The largest ilz stream processed by Pulse consisted of 2 tables of 28.6M posix reads and writes, requiring only 2.3GB of memory by the JRE</em></p>
+
+</div>
+  
+<div id=3>
+    <strong>#3</strong>
+    <h1 id="how-are-instrumentation-streams-used">How are Instrumentation Streams used?</h1>
+
+<p>File I/O instrumentation for each program is selectable on a per-file basis, based on each file&#39;s pathname, by directives in an icf file:
+<code>
+​FILES.include={*.dat:/tmp/**}.exclude={/scratch/**}
+​LAYERS.use={trc,psx}
+</code></p>
+
+<p>Resulting instrumentation is recorded in an ilz file.​</p>
+
+<p>ilz streams are:</p>
+
+<ul>
+<li>Stored in a file for post-mortem analysis</li>
+<li>Delivered via socket for run-time analysis</li>
+<li>zlib compressed to minimize sizes</li>
+<li>Multiple ilz streams can be concurrently merged into a single ilz stream</li>
+</ul>
+
+<h3 id="there-are-3-levels-of-file-i-o-instrumentation">There are 3 levels of file I/O instrumentation</h3>
+
+<p>Statistics, for each selected file, are summed into a one line summary for the process
+​
+<code>trc.detail=0</code> produces the following for every program</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># date time host user pid program bucket openCount closeCount write(count,bytes,wait) read count,bytes,wait)
+03/12/15 12:31:26 shemp bauerj 30168 cc1 program_to_psx 192 192 113 547 0.00 191 1219977 0.00
+</code></pre></div>
+<p>Statistics, for each selected file, are output to the ilz file.
+​
+<code>trc.detail=1</code> produces the following for every file</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">iosim.exe.21016.ilz trc program_to_cache /mnt/raid0/bauerj/iosim/20992/merged/kubota.SCR300 58224 7630618624 8.43
+iosim.exe.21016.ilz trc size(open,close,max)=0,0,460980224  fsType=EXT2 sector=8192
+iosim.exe.21016.ilz trc write         8818 1155792896     1.50
+iosim.exe.21016.ilz trc read         49399 6474825728     4.15
+iosim.exe.21016.ilz trc ftunc            5  948043776     2.79
+</code></pre></div>
+<p>Blow-by-blow details of each I/O event, for each selected file, are logged in the ilz file.
+​
+<code>trc.detail=2</code> provides tables such as the following for each posix I/O event for each file, in addition to the per-file summary information from <code>trc.detail=1</code>
+​</p>
+
+<h3 id="posix">POSIX</h3>
+
+<p>For example, the details for a POSIX read are:
+<img src="../images/fpa_table.png" alt=""></p>
+
+<p>Visualized in Pulse
+<img src="../images/fpa_plot.png" alt=""></p>
+
+</div>
+  
+</div>
+
+                    <!-- <div id=content class=span10>
+                        <h3 id="get-started">Get Started</h3>
+
+<p>Start by <a href="http://jekyllrb.com/docs/posts/">creating a new post</a> one of the categories listed in <code>_config.yml</code>. It will appear in the navigation on the left once recompiled. Or use the supplied script to make creating pages easier:</p>
+
+                    </div> -->
+                
+            </div>
+
+            
+
+            <div class=row-fluid>
+                <div id=footer class=span12>
+                    Documentation for <a href="https://github.com/bruth/jekyll-docs-template">jekyll-docs-template</a>
+
+                </div>
+            </div>
+        </div>
+      </div>
+</main>
+        <script>
+            function orderNav() {
+                var list,
+                    section,
+                    header,
+                    sections = [],
+                    lists = {},
+                    headers = {};
+
+                var navUl = document.querySelectorAll('#navigation ul')[0],
+                    navLis = document.querySelectorAll('#navigation ul li');
+
+                if (!navUl) return;
+
+                for (var i = 0; i < navLis.length; i++) {
+                    var order, li = navLis[i];
+
+                    if (li.classList.contains('nav-header')) {
+                        section = li.textContent || li.innerText;
+                        sections.push(section);
+                        headers[section] = li;
+                        continue;
+                    }
+
+                    if (!lists[section]) {
+                        lists[section] = [];
+                    }
+
+                    order = parseFloat(li.getAttribute('data-order'))
+                    lists[section].push([order, li]);
+                }
+
+                for (var i = 0; i < sections.length; i++) {
+                    section = sections[i];
+                    list = lists[section].sort(function(a, b) {
+                        return a[0] - b[0];
+                    });
+
+                    if (header = headers[section]) {
+                        navUl.appendChild(header);
+                    }
+                    for (var j = 0; j < list.length; j++) {
+                        navUl.appendChild(list[j][1]);
+                    }
+                }
+            }
+
+            if (document.querySelectorAll) orderNav();
+        </script>
+        
+    </body>
+</html>
